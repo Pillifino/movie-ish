@@ -4,7 +4,13 @@ movies = [
     {Title: 'Harry Potter'},
     {Title: 'Space Jam'},
     {Title: 'Shrek'},
-    
+    {Title: "Naruto"},
+    {Title: "Requiem for a Dream"},
+    {Title: "Mother!"},
+    {Title: "Star Wars"},
+    {Title: "Star Trek"},
+    {Title: "Iron Man"},
+    {Title: "Crouching Tiger, Hidden Dragon"}
 ]
 
 function doFetch() {
