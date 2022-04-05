@@ -1,2 +1,8 @@
 # movie-ish
-Project 1
+Project Outline
+
+HTML
+ - 5 Movie Cards
+CSS
+
+JS
