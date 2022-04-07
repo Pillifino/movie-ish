@@ -29,7 +29,6 @@ function randomMovie(movies) {
   }
   console.log(movieArray);
 }
-
   async function doFetchTitle() {
     randomMovie(movies);
     let resAll = [];
@@ -41,5 +40,4 @@ function randomMovie(movies) {
     }
     console.log(resAll);
 }
-
 doFetchTitle();
