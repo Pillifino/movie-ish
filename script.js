@@ -1,5 +1,5 @@
 let movies = [];
-​
+
 movies = [
     {Title: 'Harry Potter'},
     {Title: 'Space Jam'},
@@ -10,7 +10,17 @@ movies = [
     {Title: "Star Wars"},
     {Title: "Star Trek"},
     {Title: "Iron Man"},
-    {Title: "Crouching Tiger, Hidden Dragon"}
+    {Title: "Crouching Tiger, Hidden Dragon"},
+    {Ttile: "Baby Driver"},
+    {Title: "Cast Away"},
+    {Title: "Goodfellas"},
+    {Title: "Pulp Fiction"},
+    {Title: "The Godfather"},
+    {Title: "Blades of Glory"},
+    {Title: "Fast and the Furions"},
+    {Title: "The Room"},
+    {Title: "Catwoman"},
+    {Title: "Shaolin Soccer"}
 ]
 
 var movieArray = [];
