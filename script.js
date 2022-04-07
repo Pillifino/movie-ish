@@ -1,5 +1,5 @@
 let movies = [];
-
+​
 movies = [
     {Title: 'Harry Potter'},
     {Title: 'Space Jam'},
@@ -29,7 +29,6 @@ function randomMovie(movies) {
   }
   console.log(movieArray);
 }
-
   
   async function doFetchTitle() {
     randomMovie(movies);
@@ -42,5 +41,4 @@ function randomMovie(movies) {
     }
     console.log(resAll);
 }
-
 doFetchTitle();
