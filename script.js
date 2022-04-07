@@ -12,9 +12,9 @@ movies = [
     {Title: "Iron Man"},
     {Title: "Crouching Tiger, Hidden Dragon"}
 ]
-​
+
 var movieArray = [];
-​
+
 function randomMovie(movies) {
   // if (doFetch)
   var selectedIndex = [] // Blank array that fills with the random indexes from movie object
@@ -29,7 +29,6 @@ function randomMovie(movies) {
   }
   console.log(movieArray);
 }
-​
   
   async function doFetchTitle() {
     randomMovie(movies);
@@ -42,5 +41,4 @@ function randomMovie(movies) {
     }
     console.log(resAll);
 }
-​
 doFetchTitle();
