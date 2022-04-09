@@ -61,7 +61,8 @@ apiKey = "AIzaSyAE9pVyupEWgksOqzi0Ing5lRradWf4WcU";
 async function getMovieTrailer() {
     let resultAll = [];
     for (var k = 0; k < 5; k++) {
-    let searchResults = await fetch("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q" + movieArray[k].Title + "&key=" + apiKey);
+    let searchResults = await fetch("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" + encodeURIComponent(`${movieArray[k].Title} Trailer`)
+     + "&key=" + apiKey);
     let search = await searchResults.json();
     resultAll.push(search);
     }
