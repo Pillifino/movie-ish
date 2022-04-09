@@ -102,22 +102,27 @@ apiKey = "AIzaSyA6E94THYRkVvoGS9Fn3oee3kBBs6F_Nog";
 // apiKey = "AIzaSyCGwkC8jggzkEbdPB2xyh_kOo_mcoZbWco";
   //Sebastian API 2
 apiKey = "AIzaSyBauMJm8oz-n41rJ5UUTV3_hVuLZT_SEX0";
+
 async function getMovieTrailer() {
     let resultAll = [];
     for (var k = 0; k < 5; k++) {
-    let searchResults = await fetch("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + encodeURIComponent(`${movieArray[k].Title} Trailer`)
+    let searchResults = await fetch("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=" + encodeURIComponent(`${movieArray[k].Title} Trailer`)
      + "&key=" + apiKey);
     let search = await searchResults.json();
     resultAll.push(search);
     }
     for (var i = 0; i < resultAll.length; i++) {
+      console.log(resultAll);
+      var videoId = resultAll[i].items[Math.floor(Math.random() * resultAll[i].items.length)].id.videoId;
+      selectedVideoId.push(videoId);
+      console.log(selectedVideoId);
       // var searchItems = resultAll[i].items
-      var {items} = resultAll[i]; //object destructuring 
-      console.log(items);
-        for (var j = 0; i < items.length; i++) {
-        var {videoId} = items[i].id; //object destructuring
-        console.log(videoId);
-        }
+      // var {items} = resultAll[i]; //object destructuring 
+      // console.log(items);
+      //   for (var j = 0; i < items.length; i++) {
+      //   var {videoId} = items[i].id; //object destructuring
+      //   console.log(videoId);
+      //   }
       }
     console.log(resultAll);
 }
