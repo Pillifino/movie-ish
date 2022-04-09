@@ -55,8 +55,8 @@ doFetchTitle();
 
 // https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=Venom&key=[YOUR_API_KEY]
 // https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surfing&key={YOUR
-// apiKey = "AIzaSyCGwkC8jggzkEbdPB2xyh_kOo_mcoZbWco";
-apiKey = "AIzaSyAE9pVyupEWgksOqzi0Ing5lRradWf4WcU";
+// apiKey = " ";
+// apiKey = " ";
 
 async function getMovieTrailer() {
     let resultAll = [];
