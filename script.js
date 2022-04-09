@@ -1,26 +1,26 @@
 let movies = [];
 
 movies = [
-    {Title: 'Harry Potter'},
-    {Title: 'Space Jam'},
-    {Title: 'Shrek'},
-    {Title: "Naruto"},
-    {Title: "Requiem for a Dream"},
-    {Title: "Mother!"},
-    {Title: "Star Wars"},
-    {Title: "Star Trek"},
-    {Title: "Iron Man"},
-    {Title: "Crouching Tiger, Hidden Dragon"},
-    {Ttile: "Baby Driver"},
-    {Title: "Cast Away"},
-    {Title: "Goodfellas"},
-    {Title: "Pulp Fiction"},
-    {Title: "The Godfather"},
-    {Title: "Blades of Glory"},
+    {Title: 'Harry Potter'}, // good
+    {Title: 'Space Jam'}, // good
+    {Title: 'Shrek'}, // good
+    {Title: "Naruto"}, // good
+    {Title: "Requiem for a Dream"}, // good
+    {Title: "Mother!"}, // good
+    {Title: "Star Wars"}, // good
+    {Title: "Star Trek"}, // good
+    {Title: "Iron Man"}, // good
+    {Title: "Crouching Tiger, Hidden Dragon"}, // good
+    {Ttile: "Hitman"},
+    {Title: "Cast Away"}, // good
+    {Title: "Goodfellas"}, // good
+    {Title: "Pulp Fiction"}, // good
+    {Title: "The Godfather"}, // good
+    {Title: "Blades of Glory"}, // good
     {Title: "Fast and the Furions"},
-    {Title: "The Room"},
-    {Title: "Catwoman"},
-    {Title: "Shaolin Soccer"}
+    {Title: "The Room"}, // good
+    {Title: "Catwoman"}, // good
+    {Title: "Shaolin Soccer"} // good
 ]
 
 var movieArray = [];
@@ -52,3 +52,18 @@ function randomMovie(movies) {
     console.log(resAll);
 }
 doFetchTitle();
+
+// https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=Venom&key=[YOUR_API_KEY]
+// https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surfing&key={YOUR
+apiKey = "AIzaSyCGwkC8jggzkEbdPB2xyh_kOo_mcoZbWco";
+
+async function getMovieTrailer() {
+    let resultAll = [];
+    for (var k = 0; k < 5; k++) {
+    let searchResults = await fetch("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q" + movieArray[k].Title + "&key=" + apiKey);
+    let search = await searchResults.json();
+    resultAll.push(search);
+    }
+    console.log(resultAll);
+}
+getMovieTrailer();
