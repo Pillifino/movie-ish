@@ -56,7 +56,7 @@ doFetchTitle();
 // https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=Venom&key=[YOUR_API_KEY]
 // https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surfing&key={YOUR
 // apiKey = " ";
-// apiKey = " ";
+apiKey = "AIzaSyCGwkC8jggzkEbdPB2xyh_kOo_mcoZbWco";
 
 async function getMovieTrailer() {
     let resultAll = [];
@@ -66,6 +66,21 @@ async function getMovieTrailer() {
     let search = await searchResults.json();
     resultAll.push(search);
     }
+    for (var i = 0; i < resultAll.length; i++) {
+    // var searchItems = resultAll[i].items
+    var {items} = resultAll[i]; //object destructuring 
+    console.log(items);
+      for (var j = 0; i < items.length; i++) {
+      var {videoId} = items[i].id; //object destructuring
+      console.log(videoId);
+      }
+    }
     console.log(resultAll);
 }
 getMovieTrailer();
+
+//Embedded Player
+var videoId = []
+loadVideoById({'videoId': videoId,
+               'startSeconds': 5,
+               'endSeconds': 60});
