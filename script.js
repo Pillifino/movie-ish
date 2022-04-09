@@ -28,7 +28,7 @@ var movieArray = [];
 function randomMovie(movies) {
   // if (doFetch)
   var selectedIndex = [] // Blank array that fills with the random indexes from movie object
-  for (var i = 0; i < 5; i++){
+  for (var i = 0; i < 1; i++){
       var randomIndex = Math.floor(Math.random() * movies.length); //Random index generator
       if (!selectedIndex.includes(randomIndex)) {
         movieArray.push(movies[randomIndex]);
@@ -61,24 +61,25 @@ apiKey = "AIzaSyA6E94THYRkVvoGS9Fn3oee3kBBs6F_Nog";
 // apiKey = "AIzaSyAE9pVyupEWgksOqzi0Ing5lRradWf4WcU";
   // API 2
 // apiKey = "AIzaSyCGwkC8jggzkEbdPB2xyh_kOo_mcoZbWco";
+  //Sebastian API 2
+apiKey = "AIzaSyBauMJm8oz-n41rJ5UUTV3_hVuLZT_SEX0";
 async function getMovieTrailer() {
     let resultAll = [];
     for (var k = 0; k < 5; k++) {
-    let searchResults = await fetch("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" + encodeURIComponent(`${movieArray[k].Title} Trailer`)
+    let searchResults = await fetch("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + encodeURIComponent(`${movieArray[k].Title} Trailer`)
      + "&key=" + apiKey);
     let search = await searchResults.json();
     resultAll.push(search);
     }
     for (var i = 0; i < resultAll.length; i++) {
-    // var searchItems = resultAll[i].items
-    console.log(resultAll)
-    var items = resultAll[i].id.videoId; //object destructuring 
-    console.log(items);
-      // for (var j = 0; j < items.length; j++) {
-      // var {videoId} = items[j].id //object destructuring
-      // console.log(videoId);
-      // }
-    }
+      // var searchItems = resultAll[i].items
+      var {items} = resultAll[i]; //object destructuring 
+      console.log(items);
+        for (var j = 0; i < items.length; i++) {
+        var {videoId} = items[i].id; //object destructuring
+        console.log(videoId);
+        }
+      }
     console.log(resultAll);
 }
 getMovieTrailer();
