@@ -1,3 +1,4 @@
+// Variables to populate Movie Titles and Plots
 let firstMovie = document.querySelector("#firstMovie");
 let firstPlot = document.querySelector("#firstPlot");
 
@@ -13,11 +14,10 @@ let fourthPlot = document.querySelector("#fourthPlot");
 let fifthMovie = document.querySelector("#fifthMovie");
 let fifthPlot = document.querySelector("#fifthPlot");
 
-
-
-
+// Empty Array for Movies
 let movies = [];
 
+// Object that holds Title of movies
 movies = [
     {Title: 'Harry Potter'}, // good
     {Title: 'Space Jam'}, // good
@@ -41,10 +41,11 @@ movies = [
     {Title: "Shaolin Soccer"} // good
 ]
 
+// Blank Array to store randonly generated movies
 var movieArray = [];
 
+// Function that selects random movies from object
 function randomMovie(movies) {
-  // if (doFetch)
   var selectedIndex = [] // Blank array that fills with the random indexes from movie object
   for (var i = 0; i < 5; i++){
       var randomIndex = Math.floor(Math.random() * movies.length); //Random index generator
@@ -59,7 +60,7 @@ function randomMovie(movies) {
 }
 
 
-  
+  // Async function that allows moive data such as plot and title to be extracted from OMDb site
   async function doFetchTitle() {
     randomMovie(movies);
     let resAll = [];
@@ -88,21 +89,17 @@ function randomMovie(movies) {
 }
 doFetchTitle();
 
-
-// console.log(movieArray);
-// console.log(firstMovie);
-
-// https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=Venom&key=[YOUR_API_KEY]
-// https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surfing&key={YOUR
-  //Sebastian API
-apiKey = "AIzaSyA6E94THYRkVvoGS9Fn3oee3kBBs6F_Nog";
+// API Keys for YouTube
   // API 1
-// apiKey = "AIzaSyAE9pVyupEWgksOqzi0Ing5lRradWf4WcU";
+// apiKey = "AIzaSyA6E94THYRkVvoGS9Fn3oee3kBBs6F_Nog";
   // API 2
+// apiKey = "AIzaSyAE9pVyupEWgksOqzi0Ing5lRradWf4WcU";
+  // API 3
 // apiKey = "AIzaSyCGwkC8jggzkEbdPB2xyh_kOo_mcoZbWco";
-  //Sebastian API 2
-apiKey = "AIzaSyBauMJm8oz-n41rJ5UUTV3_hVuLZT_SEX0";
+  // API 4
+// apiKey = "AIzaSyBauMJm8oz-n41rJ5UUTV3_hVuLZT_SEX0";
 
+// Asyn function that allows us to access YouTube Data API to extract videos 
 async function getMovieTrailer() {
     let resultAll = [];
     for (var k = 0; k < 5; k++) {
@@ -133,6 +130,7 @@ getMovieTrailer();
 //                'startSeconds': 5,
 //                'endSeconds': 60});
 
+// Local Storage Item to store videoId and be extracted
 localStorage.setItem("videoId", JSON.stringify(videoId))
 var videolayerID = JSON.parse(localStorage.getItem('videoId'));
 console.log(videolayerID);
