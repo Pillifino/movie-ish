@@ -155,6 +155,14 @@ firstMovie.addEventListener('click', playTrailer)
 //   displayedVideo.textContent("https://www.youtube.com/embed/" + videoId + "?autoplay=1&origin=http://example.com")
 // }
 
+// localStorage.setItem("videoId", JSON.stringify(videoId));
+// var videolayerID = JSON.parse(localStorage.getItem('videoId'));
+// console.log(videolayerID);
+// function displaySelectedTrailer(){
+//   displayedVideo.textContent("https://www.youtube.com/embed/" + videoId + "?autoplay=1&origin=http://example.com");
+// }
+//   displayedVideo.textContent("https://www.youtube.com/embed/" + videoId + "?autoplay=1&origin=http://example.com")
+// }
 //pull video ID data from index 0 of each search result from 5 random movies
 // >>>>>>> a2860a56489387e83e1328b7de7e1cdf746da709
 // >>>>>>> f2f7308eb8da20a9103c68a2f0ae50d33c8598ca
