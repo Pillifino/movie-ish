@@ -14,7 +14,7 @@ A web app that will randonly generate 5 movies along with their plots and movie 
 Development Tasks
 - Use materialize to populate the DOM with a button, cards, and text areas in an organized fashion.
 - Create javascript functions to handle OMDB and Youtube API fetch operations.
-- Populated fetched information in the DOM for users to veiw movie details
+- Populated fetched information in the DOM for users to veiw movie details.
 
 ## View the project
 
@@ -54,7 +54,7 @@ THEN I am able to see a new set of 5 random movies
 
 ## URL to the GitHub Repository
 
-[GitHub Pages Link: https://github.com/Pillifino/movie-ish](https://github.com/Pillifino/movie-ish)
+[GitHub Repository Link](https://github.com/Pillifino/movie-ish)
 
 ## Screenshot of the finished Application
 
