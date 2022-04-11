@@ -12,7 +12,7 @@ let fourthMovie = document.querySelector("#fourthMovie");
 let fourthPlot = document.querySelector("#fourthPlot");
 
 let fifthMovie = document.querySelector("#fifthMovie");
-let fifthPlot = document.querySelector("fifthPlot");
+let fifthPlot = document.querySelector("#fifthPlot");
 
 let displayedVideo = document.querySelectorAll("src");
 
@@ -117,7 +117,7 @@ localStorage.setItem("movieArray", JSON.stringify(movieArray[0].Title))
 
 // API Keys for YouTube
   // API 1
-// apiKey = "AIzaSyA6E94THYRkVvoGS9Fn3oee3kBBs6F_Nog";
+apiKey = "AIzaSyA6E94THYRkVvoGS9Fn3oee3kBBs6F_Nog";
   // API 2
 // apiKey = "AIzaSyAE9pVyupEWgksOqzi0Ing5lRradWf4WcU";
   // API 3
