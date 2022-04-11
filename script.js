@@ -74,7 +74,7 @@ async function doFetchTitle() {
   randomMovie(movies);
   let resAll = [];
   for (var j = 0; j < 1; j++) {
-    let res = await fetch('http://www.omdbapi.com/?apikey=91827673&t=' + movieArray[j].Title);
+    let res = await fetch('https://www.omdbapi.com/?apikey=91827673&t=' + movieArray[j].Title);
     let result = await res.json();
     movieArray[j]["Plot"] = result.Plot;
     console.log(result);
@@ -100,7 +100,7 @@ localStorage.setItem("movieArray", JSON.stringify(movieArray[0].Title))
   // API 5
 // apiKey = "AIzaSyATrXkKZS2DC7zkO4mN9TmPgRacw327OLs";
   // API Key 6
-apiKey = "AIzaSyCGwkC8jggzkEbdPB2xyh_kOo_mcoZbWco";
+// apiKey = "AIzaSyCGwkC8jggzkEbdPB2xyh_kOo_mcoZbWco";
 
 // Asyn function that allows us to access YouTube Data API to extract videos
 let selectedID = '' // variable that holds json response for video ID
