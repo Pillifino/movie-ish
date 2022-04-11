@@ -35,7 +35,7 @@ movies = [
     {Title: "Pulp Fiction"}, // good
     {Title: "The Godfather"}, // good
     {Title: "Blades of Glory"}, // good
-    {Title: "Fast and the Furions"},
+    {Title: "Fast and the Furious"}, // good
     {Title: "The Room"}, // good
     {Title: "Catwoman"}, // good
     {Title: "Shaolin Soccer"} // good
@@ -124,6 +124,10 @@ async function getMovieTrailer() {
     console.log(resultAll);
 }
 getMovieTrailer();
+
+function refreshPage(){
+  window.location.reload();
+} 
 
 // //Embedded Player
 // loadVideoById({'videoId': videoId,
