@@ -142,7 +142,15 @@ function playTrailer(){
   console.log(displayedVideo)
 }
 
+
 firstMovie.addEventListener('click', playTrailer);
+
+localStorage.setItem("videoId", JSON.stringify(videoId))
+var videolayerID = JSON.parse(localStorage.getItem('videoId'));
+console.log(videolayerID);
+function displaySelectedTrailer(){
+  displayedVideo.textContent("https://www.youtube.com/embed/" + videoId + "?autoplay=1&origin=http://example.com");
+}
 
 // localStorage.setItem("videoId", JSON.stringify(videoId));
 // var videolayerID = JSON.parse(localStorage.getItem('videoId'));
