@@ -100,11 +100,11 @@ localStorage.setItem("movieArray", JSON.stringify(movieArray[0].Title))
   // API 5
 // apiKey = "AIzaSyATrXkKZS2DC7zkO4mN9TmPgRacw327OLs";
   // API Key 6
-// apiKey = "AIzaSyCGwkC8jggzkEbdPB2xyh_kOo_mcoZbWco";
+apiKey = "AIzaSyCGwkC8jggzkEbdPB2xyh_kOo_mcoZbWco";
 
 // Asyn function that allows us to access YouTube Data API to extract videos
 let selectedID = '' // variable that holds json response for video ID
-async function getMovieTrailer() {
+async function getMovieTrailer(getVideoID) {
     let resultAll = [];
     for (var k = 0; k < 1; k++) {
     let searchResults = await fetch("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + encodeURIComponent(`${movieArray[k].Title} Trailer`)
