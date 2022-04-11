@@ -24,7 +24,6 @@ movies = [
     {Title: "Star Trek"}, // good
     {Title: "Iron Man"}, // good
     {Title: "Crouching Tiger, Hidden Dragon"}, // good
-    {Ttile: "Batman"},
     {Title: "Cast Away"}, // good
     {Title: "Goodfellas"}, // good
     {Title: "Pulp Fiction"}, // good
@@ -33,7 +32,29 @@ movies = [
     {Title: "Fast and the Furious"}, // good
     {Title: "The Room"}, // good
     {Title: "Catwoman"}, // good
-    {Title: "Shaolin Soccer"} // good
+    {Title: "Shaolin Soccer"}, // good
+    {Title: "The Shawshank Redemption"},
+    {Title: "Schindler's List"},
+    {Title: "Raging Bull"},
+    {Title: "Casablanca"},
+    {Title: "Citizen Kane"},
+    {Title: "Vertigo"},
+    {Title: "The Godfather: Part II"},
+    {Title: "Forrest Gump"},
+    {Title: "12 Angry Men"},
+    {Title: "2001: A Space Odyssey"},
+    {Title: "The Silence of the Lambs"},
+    {Title: "Chinatown"},
+    {Title: "The Bridge on the River Kwai"},
+    {Title: "Singin' in the Rain"},
+    {Title: "It's a Wonderful Life"},
+    {Title: "Some Like It Hot"},
+    {Title: "Apocalypse Now"},
+    {Title: "Amadeus"},
+    {Title: "Gladiator"},
+    {Title: "A Clockwork Orange"},
+    {Title: "Patton"},
+    {Title: "The Good, the Bad and the Ugly"},
 ]
 // Blank Array to store randonly generated movies
 var movieArray = [];
@@ -126,3 +147,5 @@ console.log(videolayerID);
 function displaySelectedTrailer(){
   displayedVideo.textContent("https://www.youtube.com/embed/" + videoId + "?autoplay=1&origin=http://example.com")
 }
+
+//pull video ID data from index 0 of each search result from 5 random movies
