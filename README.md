@@ -54,7 +54,7 @@ THEN I am able to see a new set of 5 random movies
 
 ## URL to the GitHub Repository
 
-[GitHub Pages Link:](https://github.com/Pillifino/movie-ish)
+[GitHub Repository Link](https://github.com/Pillifino/movie-ish)
 
 ## Screenshot of the finished Application
 
