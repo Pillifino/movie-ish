@@ -86,6 +86,8 @@ async function doFetchTitle() {
 }
 doFetchTitle();
 
+localStorage.setItem("movieArray", JSON.stringify(movieArray[0].Title))
+
 // API Keys for YouTube
   // API 1
 // apiKey = "AIzaSyA6E94THYRkVvoGS9Fn3oee3kBBs6F_Nog";
@@ -101,6 +103,7 @@ doFetchTitle();
 // apiKey = "AIzaSyCGwkC8jggzkEbdPB2xyh_kOo_mcoZbWco";
 
 // Asyn function that allows us to access YouTube Data API to extract videos
+let selectedID = '' // variable that holds json response for video ID
 async function getMovieTrailer() {
     let resultAll = [];
     for (var k = 0; k < 1; k++) {
@@ -115,12 +118,13 @@ async function getMovieTrailer() {
       // var videoId = resultAll[i].items[Math.floor(Math.random() * resultAll[i].items.length)].id.videoId;
       // selectedVideoId.push(videoId);
       // console.log(selectedVideoId);
-      var searchItems = resultAll[i].items;
+      // var searchItems = resultAll[i].items;
       var {items} = resultAll[i]; //object destructuring
       console.log(items);
         for (var j = 0; i < items.length; i++) {
         var {videoId} = items[i].id; //object destructuring
         console.log(videoId);
+        selectedID = videoId // used to replace video ID in url of embedded video API
         }
       }
     console.log(resultAll);
@@ -134,15 +138,18 @@ function refreshPage(){
 
 // Grabs videoId from search results
 function getVideoID(){
-  localStorage.setItem("videoId", JSON.stringify(videoId))
+  localStorage.setItem("selectedID", JSON.stringify(selectedID))
   var videolayerID = JSON.parse(localStorage.getItem('videoId'));
-  videolayerID = selectedID
-  console.log(videolayerID);
+  if (videolayerID = !null){
+    selectedID = videolayerID
+  }
+  console.log(selectedID)
 }
+getVideoID();
 
 
 //pull video ID data from index 0 of each search result for 5 random mmovies
-let selectedID = '' // variable that holds json response for video ID
+
 function playTrailer(){
   //Use Json to grab video ID from data and replace content in src
   getVideoID(videoId);
