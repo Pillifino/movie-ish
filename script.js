@@ -1,7 +1,20 @@
 // Variables to populate Movie Titles and Plots
 let firstMovie = document.querySelector("#firstMovie");
 let firstPlot = document.querySelector("#firstPlot");
-let displayedVideo = document.querySelectorAll("src")
+
+let secondMovie = document.querySelector("#secondMovie");
+let secondPlot = document.querySelector("#secondPlot");
+
+let thridMovie = document.querySelector("#thirdMovie");
+let thirdPlot = document.querySelector("#thirdPlot");
+
+let fourthMovie = document.querySelector("#fourthMovie");
+let fourthPlot = document.querySelector("#fourthPlot");
+
+let fifthMovie = document.querySelector("#fifthMovie");
+let fifthPlot = document.querySelector("#fifthPlot");
+
+let displayedVideo = document.querySelectorAll("src");
 
 // Empty Array for Movies
 let movies = [];
@@ -57,7 +70,7 @@ var movieArray = [];
 // Function that selects random movies from object
 function randomMovie(movies) {
   var selectedIndex = [] // Blank array that fills with the random indexes from movie object
-  for (var i = 0; i < 1; i++){
+  for (var i = 0; i < 5; i++){
       var randomIndex = Math.floor(Math.random() * movies.length); //Random index generator
       if (!selectedIndex.includes(randomIndex)) {
         movieArray.push(movies[randomIndex]);
@@ -73,7 +86,7 @@ function randomMovie(movies) {
 async function doFetchTitle() {
   randomMovie(movies);
   let resAll = [];
-  for (var j = 0; j < 1; j++) {
+  for (var j = 0; j < 5; j++) {
     let res = await fetch('https://www.omdbapi.com/?apikey=91827673&t=' + movieArray[j].Title);
     let result = await res.json();
     movieArray[j]["Plot"] = result.Plot;
@@ -81,16 +94,30 @@ async function doFetchTitle() {
     resAll.push(result);
   }
   console.log(resAll);
+
   firstMovie.textContent = movieArray[0].Title;
   firstPlot.textContent = movieArray[0].Plot;
+
+  secondMovie.textContent = movieArray[1].Title;
+  secondPlot.textContent = movieArray[1].Plot;
+
+  thridMovie.textContent = movieArray[2].Title;
+  thirdPlot.textContent = movieArray[2].Plot;
+
+  fourthMovie.textContent = movieArray[3].Title;
+  fourthPlot.textContent = movieArray[3].Plot;
+
+  fifthMovie.textContent = movieArray[4].Title;
+  fifthPlot.textContent = movieArray[4].Plot;
 }
 doFetchTitle();
 
+// Locally storing the movies 
 localStorage.setItem("movieArray", JSON.stringify(movieArray[0].Title))
 
 // API Keys for YouTube
   // API 1
-// apiKey = "AIzaSyA6E94THYRkVvoGS9Fn3oee3kBBs6F_Nog";
+apiKey = "AIzaSyA6E94THYRkVvoGS9Fn3oee3kBBs6F_Nog";
   // API 2
 // apiKey = "AIzaSyAE9pVyupEWgksOqzi0Ing5lRradWf4WcU";
   // API 3
@@ -106,7 +133,7 @@ localStorage.setItem("movieArray", JSON.stringify(movieArray[0].Title))
 let selectedID = '' // variable that holds json response for video ID
 async function getMovieTrailer(getVideoID) {
     let resultAll = [];
-    for (var k = 0; k < 1; k++) {
+    for (var k = 0; k < 1 ; k++) {
     let searchResults = await fetch("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + encodeURIComponent(`${movieArray[k].Title} Trailer`)
      + "&key=" + apiKey);
     let search = await searchResults.json();
@@ -124,7 +151,7 @@ async function getMovieTrailer(getVideoID) {
         for (var j = 0; i < items.length; i++) {
         var {videoId} = items[i].id; //object destructuring
         console.log(videoId);
-        selectedID = videoId // used to replace video ID in url of embedded video API
+        //selectedID = videoId // used to replace video ID in url of embedded video API
         }
       }
     console.log(resultAll);
@@ -141,7 +168,7 @@ function getVideoID(){
   localStorage.setItem("selectedID", JSON.stringify(selectedID))
   var videolayerID = JSON.parse(localStorage.getItem('videoId'));
   if (videolayerID = !null){
-    selectedID = videolayerID
+    selectedID = videolayerID;
   }
   console.log(selectedID)
 }
