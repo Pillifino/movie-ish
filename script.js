@@ -9,7 +9,7 @@ let fourthMovie = document.querySelector("#fourthMovie");
 let fourthPlot = document.querySelector("#fourthPlot");
 let fifthMovie = document.querySelector("#fifthMovie");
 let fifthPlot = document.querySelector("#fifthPlot");
-let displayedVideo = document.querySelectorAll("src")
+let displayedVideo = document.querySelectorAll("src");
 // Empty Array for Movies
 let movies = [];
 // Object that holds Title of movies
@@ -124,5 +124,5 @@ localStorage.setItem("videoId", JSON.stringify(videoId))
 var videolayerID = JSON.parse(localStorage.getItem('videoId'));
 console.log(videolayerID);
 function displaySelectedTrailer(){
-  displayedVideo.textContent("https://www.youtube.com/embed/" + videoId + "?autoplay=1&origin=http://example.com")
+  displayedVideo.textContent("https://www.youtube.com/embed/" + videoId + "?autoplay=1&origin=http://example.com");
 }
