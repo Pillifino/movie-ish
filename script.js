@@ -151,7 +151,7 @@ async function getMovieTrailer(getVideoID) {
         for (var j = 0; i < items.length; i++) {
         var {videoId} = items[i].id; //object destructuring
         console.log(videoId);
-        selectedID = videoId // used to replace video ID in url of embedded video API
+        //selectedID = videoId // used to replace video ID in url of embedded video API
         }
       }
     console.log(resultAll);
@@ -168,7 +168,7 @@ function getVideoID(){
   localStorage.setItem("selectedID", JSON.stringify(selectedID))
   var videolayerID = JSON.parse(localStorage.getItem('videoId'));
   if (videolayerID = !null){
-    selectedID = videolayerID
+    selectedID = videolayerID;
   }
   console.log(selectedID)
 }
