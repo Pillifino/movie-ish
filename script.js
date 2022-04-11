@@ -1,22 +1,17 @@
 // Variables to populate Movie Titles and Plots
 let firstMovie = document.querySelector("#firstMovie");
 let firstPlot = document.querySelector("#firstPlot");
-
 let secondMovie = document.querySelector("#secondMovie");
 let secondPlot = document.querySelector("#secondPlot");
-
 let thirdMovie = document.querySelector("#thirdMovie");
 let thirdPlot = document.querySelector("#thirdPlot");
-
 let fourthMovie = document.querySelector("#fourthMovie");
 let fourthPlot = document.querySelector("#fourthPlot");
-
 let fifthMovie = document.querySelector("#fifthMovie");
 let fifthPlot = document.querySelector("#fifthPlot");
-
+let displayedVideo = document.querySelectorAll("src")
 // Empty Array for Movies
 let movies = [];
-
 // Object that holds Title of movies
 movies = [
     {Title: 'Harry Potter'}, // good
@@ -40,10 +35,8 @@ movies = [
     {Title: "Catwoman"}, // good
     {Title: "Shaolin Soccer"} // good
 ]
-
 // Blank Array to store randonly generated movies
 var movieArray = [];
-
 // Function that selects random movies from object
 function randomMovie(movies) {
   var selectedIndex = [] // Blank array that fills with the random indexes from movie object
@@ -58,8 +51,6 @@ function randomMovie(movies) {
   }
   console.log(movieArray);
 }
-
-
   // Async function that allows moive data such as plot and title to be extracted from OMDb site
   async function doFetchTitle() {
     randomMovie(movies);
@@ -74,21 +65,16 @@ function randomMovie(movies) {
     console.log(resAll);
     firstMovie.textContent = movieArray[0].Title;
     firstPlot.textContent = movieArray[0].Plot;
-
     secondMovie.textContent = movieArray[1].Title;
     secondPlot.textContent = movieArray[1].Plot;
-
     thirdMovie.textContent = movieArray[2].Title;
     thirdPlot.textContent = movieArray[2].Plot;
-
     fourthMovie.textContent = movieArray[3].Title;
     fourthPlot.textContent = movieArray[3].Plot;
-
     fifthMovie.textContent = movieArray[4].Title;
     fifthPlot.textContent = movieArray[4].Plot;
 }
 doFetchTitle();
-
 // API Keys for YouTube
   // API 1
 // apiKey = "AIzaSyA6E94THYRkVvoGS9Fn3oee3kBBs6F_Nog";
@@ -98,10 +84,10 @@ doFetchTitle();
 // apiKey = "AIzaSyCGwkC8jggzkEbdPB2xyh_kOo_mcoZbWco";
   // API 4
 // apiKey = "AIzaSyBauMJm8oz-n41rJ5UUTV3_hVuLZT_SEX0";
-
-apiKey = "AIzaSyCGwkC8jggzkEbdPB2xyh_kOo_mcoZbWco";
-
-// Asyn function that allows us to access YouTube Data API to extract videos 
+  // Alex API
+apiKey = "AIzaSyATrXkKZS2DC7zkO4mN9TmPgRacw327OLs";
+// apiKey = "AIzaSyCGwkC8jggzkEbdPB2xyh_kOo_mcoZbWco";
+// Asyn function that allows us to access YouTube Data API to extract videos
 async function getMovieTrailer() {
     let resultAll = [];
     for (var k = 0; k < 5; k++) {
@@ -116,7 +102,7 @@ async function getMovieTrailer() {
       selectedVideoId.push(videoId);
       console.log(selectedVideoId);
       // var searchItems = resultAll[i].items
-      // var {items} = resultAll[i]; //object destructuring 
+      // var {items} = resultAll[i]; //object destructuring
       // console.log(items);
       //   for (var j = 0; i < items.length; i++) {
       //   var {videoId} = items[i].id; //object destructuring
@@ -126,17 +112,17 @@ async function getMovieTrailer() {
     console.log(resultAll);
 }
 getMovieTrailer();
-
 function refreshPage(){
   window.location.reload();
-} 
-
+}
 // //Embedded Player
 // loadVideoById({'videoId': videoId,
 //                'startSeconds': 5,
 //                'endSeconds': 60});
-
 // Local Storage Item to store videoId and be extracted
 localStorage.setItem("videoId", JSON.stringify(videoId))
 var videolayerID = JSON.parse(localStorage.getItem('videoId'));
 console.log(videolayerID);
+function displaySelectedTrailer(){
+  displayedVideo.textContent("https://www.youtube.com/embed/" + videoId + "?autoplay=1&origin=http://example.com")
+}
