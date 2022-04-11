@@ -58,6 +58,8 @@ THEN I am able to see a new set of 5 random movies
 
 ## Screenshot of the finished Application
 
+![Screenshot of Website](https://github.com/Pillifino/movie-ish/blob/develop/images/Screenshot%202022-04-11%20142355.png "Website")
+
 ## Link to the Class Presentation
 
 [Link to the Powerpoint presentation](https://docs.google.com/presentation/d/1lk8wMv_QnCxtC3SRCyCg2XEHKUSKb8Te/edit?usp=sharing&ouid=109680142610169412690&rtpof=true&sd=true)
