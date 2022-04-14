@@ -139,6 +139,11 @@ async function getMovieTrailer(movieArray) {
   }
 }
 
+// Function to reload the page
+function refreshPage(){
+  window.location.reload();
+}
+
 // Function to initialize all functions in sync
 function init(){
   var movieArray = randomMovie();
@@ -149,7 +154,6 @@ function init(){
   })
 }
 init();
-
 
 // Our Old code that helped us on this Journey
 
