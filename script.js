@@ -16,6 +16,9 @@ let fifthPlot = document.querySelector("#fifthPlot");
 
 let displayedVideo = document.querySelector("#ytplayer1");
 
+let iframeArray = document.querySelectorAll("iframe");
+console.log(iframeArray);
+
 // Empty Array for Movies
 let movies = [];
 
@@ -113,7 +116,7 @@ async function doFetchTitle() {
 doFetchTitle();
 
 // Locally storing the movies 
-localStorage.setItem("movieArray", JSON.stringify(movieArray[0].Title))
+localStorage.setItem("movieArray", JSON.stringify(movieArray[0].Title));
 
 // API Keys for YouTube
   // API 1
@@ -134,53 +137,53 @@ async function getVideoID(idFromApi){
   localStorage.setItem("selectedID", JSON.stringify(idFromApi))
   var videolayerID = JSON.parse(localStorage.getItem('selectedId'));
   console.log(videolayerID)
-  if (videolayerID){
+  if (videolayerID) {
     selectedID = videolayerID;
   }
-  console.log(selectedID)
+  console.log(selectedID);
 }
 // getVideoID();
 
-// Asyn function that allows us to access YouTube Data API to extract videos
-let selectedID = '' // variable that holds json response for video ID
-async function getMovieTrailer(getVideoID) {
-    let resultAll = [];
-    for (var k = 0; k < 1 ; k++) {
-    let searchResults = await fetch("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + encodeURIComponent(`${movieArray[k].Title} Trailer`)
-     + "&key=" + apiKey);
-    let search = await searchResults.json();
-    resultAll.push(search);
-    console.log(search)
-    }
-    for (var i = 0; i < resultAll.length; i++) {
-      // console.log(resultAll);
-      // selectedVideoId = [];
-      // var videoId = resultAll[i].items[Math.floor(Math.random() * resultAll[i].items.length)].id.videoId;
-      // selectedVideoId.push(videoId);
-      // console.log(selectedVideoId);
-      // var searchItems = resultAll[i].items;
-      var {items} = resultAll[i]; //object destructuring
-      console.log(items);
-        for (var i = 0; i < items.length; i++) {
-        var {videoId} = items[i].id; //object destructuring
-        console.log(videoId);
-        localStorage.setItem("selectedID", JSON.stringify(videoId))
-        var videolayerID = JSON.parse(localStorage.getItem('selectedID'));
-        console.log(videolayerID)
-        if (videolayerID){
-        selectedID = videolayerID;
-        }
-        console.log(selectedID)
-        playTrailer(selectedID);
-        //selectedID = videoId // used to replace video ID in url of embedded video API
-        }
-      }
-    console.log(resultAll);
-}
-getMovieTrailer();
+// // Asyn function that allows us to access YouTube Data API to extract videos
+// let selectedID = '' // variable that holds json response for video ID
+// async function getMovieTrailer(getVideoID) {
+//     let resultAll = [];
+//     for (var k = 0; k < 1 ; k++) {
+//     let searchResults = await fetch("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + encodeURIComponent(`${movieArray[k].Title} Trailer`)
+//      + "&key=" + apiKey);
+//     let search = await searchResults.json();
+//     resultAll.push(search);
+//     console.log(search)
+//     }
+//     for (var i = 0; i < resultAll.length; i++) {
+//       // console.log(resultAll);
+//       // selectedVideoId = [];
+//       // var videoId = resultAll[i].items[Math.floor(Math.random() * resultAll[i].items.length)].id.videoId;
+//       // selectedVideoId.push(videoId);
+//       // console.log(selectedVideoId);
+//       // var searchItems = resultAll[i].items;
+//       var {items} = resultAll[i]; //object destructuring
+//       console.log(items);
+//         for (var i = 0; i < items.length; i++) {
+//         var {videoId} = items[i].id; //object destructuring
+//         console.log(videoId);
+//         localStorage.setItem("selectedID", JSON.stringify(videoId));
+//         var videolayerID = JSON.parse(localStorage.getItem('selectedID'));
+//         console.log(videolayerID)
+//         if (videolayerID) {
+//         selectedID = videolayerID;
+//         }
+//         console.log(selectedID);
+//         playTrailer(selectedID);
+//         //selectedID = videoId // used to replace video ID in url of embedded video API
+//         }
+//       }
+//     console.log(resultAll);
+// }
+// getMovieTrailer();
 
 // Function to reload the page
-function refreshPage(){
+function refreshPage() {
   window.location.reload();
 }
 
@@ -188,32 +191,35 @@ function refreshPage(){
 
 //pull video ID data from index 0 of each search result for 5 random mmovies
 
-function playTrailer(selectedID){
+function playTrailer(movieResultArray, iframeArray) {
   //Use Json to grab video ID from data and replace content in src
   // getVideoID(videoId);
-  displayedVideo.src = "https://www.youtube.com/embed/" + selectedID + "?autoplay=1&origin=http://example.com"
-  console.log(displayedVideo)
-  console.log(selectedID)
+  for ( var i = 0; i < movieResultArray.length; i++ ) {
+  iframeArray[i].src = "https://www.youtube.com/embed/" + movieResultArray[i] + "?autoplay=1&origin=http://example.com"
+  console.log(movieResultArray);
+  console.log(iframeArray);
+  }
 }
 
 for (i = 0; i < movieArray.length; i++) {
-  playTrailer
+  playTrailer;
 }
 
-let movieResultArray = []
-function movieResults(movie){
+let movieResultArray = [];
+function movieResults(movie) {
   fetch("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + encodeURIComponent(`${movie} Trailer`)
-  + "&key=" + apiKey).then(function(response){
+  + "&key=" + apiKey).then(function(response) {
     return response.json()
-  }) .then(function(response){
-    console.log(response.items[0].id.videoId)
-    return response.items[0].id.videoId
+  }) .then(function(response) {
+    console.log(response.items[0].id.videoId);
+    return response.items[0].id.videoId;
   })
      .then(function(response){
-    movieResultArray.push(response)
-  }) .then (function(response){
-    console.log(movieResultArray)
-    return movieResultArray
+    movieResultArray.push(response);
+  }) .then (function(response) {
+    console.log(movieResultArray);
+    playTrailer(movieResultArray, iframeArray);
+    return movieResultArray;
   })
 
   // let search = await searchResults.json();
@@ -222,14 +228,13 @@ function movieResults(movie){
 }
 
 function movieIdGenerator() {
-  console.log(movieArray[0])
+  console.log(movieArray[0]);
   for (i = 0; i < movieArray.length; i++) {
-    var movieID = movieResults(movieArray[i].Title)
-    console.log(movieID)  
+    var movieID = movieResults(movieArray[i].Title);
+    console.log(movieID);
 }
-  console.log(movieResultArray)
+  console.log(movieResultArray);
 }
-
 movieIdGenerator();
 
 // Event Listener to play trailer
