@@ -133,19 +133,19 @@ async function getMovieTrailer(movieArray) {
   let movie = await searchResults.json();
   resultAllVideoId.push(movie.items[0].id.videoId);
   }
-  console.log("==== all video ID ====",resultAllVideoId);
+  // console.log("==== all video ID ====",resultAllVideoId);
   for(var i = 0; i < resultAllVideoId.length; i++){
       playTrailer(resultAllVideoId[i], i)
   }
 }
 
 // Function to reload the page
-function refreshPage(){
+function refreshPage() {
   window.location.reload();
 }
 
 // Function to initialize all functions in sync
-function init(){
+function init() {
   var movieArray = randomMovie();
   doFetchTitle(movieArray)
   .then(function(movieArray){
